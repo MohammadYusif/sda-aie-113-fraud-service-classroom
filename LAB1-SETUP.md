@@ -42,14 +42,25 @@ activation line (not `python -m venv .venv` again).
 
 At this checkpoint `pyproject.toml` doesn't have a `[build-system]` section
 yet — that's part of your Lab 1 task, so `pip install -e .` won't work
-until you've written it. For now, install what the notebook needs directly:
+until you've written it. For now, install from the repo's pinned lock file
+instead of naming packages directly:
 
 ```bash
-pip install pandas scikit-learn joblib pydantic ipykernel
+pip install -r requirements.lock
+pip install ipykernel
 ```
 
+**Always install from `requirements.lock`, not `pip install scikit-learn`
+by itself.** `models/fraud_xgb_v3.joblib` was pickled with an exact
+scikit-learn version, and `requirements.lock` pins that same version
+(currently 1.9.0). A newer or older scikit-learn can silently score things
+differently, or crash outright when you write the golden-score/AUC tests in
+Lab 4 — scikit-learn's own `InconsistentVersionWarning` exists precisely
+because this happens. This lock file already has everything every later
+lab needs too, so you won't hit this again as the course adds dependencies.
+
 (`ipykernel` is only there so VS Code's notebook UI can find this venv as a
-kernel — it's not a project dependency.)
+kernel — it's not a project dependency, so it isn't in the lock file.)
 
 ## 4. Verify
 

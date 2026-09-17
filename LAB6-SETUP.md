@@ -29,6 +29,12 @@ yet:
 pip install pydantic-settings structlog
 ```
 
+If you're picking this repo up fresh (new machine, new clone), run
+`pip install -r requirements.lock` first — as in every lab from here
+back, this keeps `scikit-learn` pinned to the exact version
+`models/fraud_xgb_v3.joblib` was pickled with, not whatever an unpinned
+install would otherwise resolve.
+
 ## 4. Verify
 
 ```bash

@@ -24,7 +24,9 @@ source .venv/bin/activate
 
 Nothing new to install for this lab — you're using the same editable
 install from Lab 2 (`pip install -e .`). If you're picking this repo up
-fresh (new machine, new clone), run that first.
+fresh (new machine, new clone), run `pip install -r requirements.lock`
+first (pins `scikit-learn` to the version `models/fraud_xgb_v3.joblib`
+was pickled with), then `pip install -e .` and `pip install httpx`.
 
 ## 4. Docker
 

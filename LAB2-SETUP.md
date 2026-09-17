@@ -24,12 +24,18 @@ source .venv/bin/activate
 ## 3. Install dependencies
 
 `pyproject.toml` now has a `[build-system]` section (from your Lab 1 work),
-so an editable install works:
+so an editable install works. `fastapi` and `uvicorn` are already pinned
+and installed from Lab 1's `requirements.lock` — only `httpx` is new this
+lab:
 
 ```bash
 pip install -e .
-pip install "fastapi[standard]" uvicorn httpx
+pip install httpx
 ```
+
+(If you're picking this repo up fresh — new machine, new clone — run
+`pip install -r requirements.lock` first, same as Lab 1, before the
+commands above.)
 
 Part B (load testing) also needs `hey`, which isn't a Python package:
 - Windows: `choco install hey` (or download the binary from its GitHub releases)

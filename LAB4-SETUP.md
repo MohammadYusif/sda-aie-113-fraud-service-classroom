@@ -29,6 +29,14 @@ yet:
 pip install pytest pytest-cov httpx
 ```
 
+If you're picking this repo up fresh (new machine, new clone), run
+`pip install -r requirements.lock` first, before the command above — this
+lab has you write tests against `models/fraud_xgb_v3.joblib`, a pre-trained
+model pickled with an exact scikit-learn version, and `requirements.lock`
+is what pins your venv to that same version. An unpinned `scikit-learn`
+can make your own golden-score/AUC tests fail (or silently score
+differently) for reasons that have nothing to do with your test code.
+
 ## 4. Verify
 
 ```bash
